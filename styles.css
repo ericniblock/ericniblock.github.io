@@ -42,8 +42,11 @@
 .flex-c {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 100vh
+  justify-content:space-evenly;
+  max-width: 60%;
+  height: 100vh;
+  margin:auto
+  
 
 }
 
@@ -51,13 +54,10 @@
   color: black;
   font-weight: bold;
   font-size: 3em;
-  text-align: left;
+  text-align: center;
+  
 }
 
-
-.row {
-  width: 4%;
-}
 
 .fade-out {
 	-webkit-animation: fade-out 1s ease-out both;
