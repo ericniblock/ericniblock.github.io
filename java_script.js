@@ -19,8 +19,6 @@ $(document).ready(function () {
         letters[i] +
         "s cubic-bezier(0,.26,.95,.6) both",
     });
-    console.log(".slide-in-blurred-top-" + String(i + 1));
-    console.log(letters[i] + 0.5);
   }
 });
 
