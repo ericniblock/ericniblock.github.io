@@ -147,7 +147,7 @@
 
 .anim-flex-i {
   display: flex;
-  flex: 0.5;
+  flex: 0.4;
 }
 
 .r-flex-i-small {
@@ -182,4 +182,70 @@ body {
 
 object {
   width: 100%;
+}
+
+.flex-vert-cont {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+  max-width: 90vw;
+  margin: auto;
+  padding: 10px;
+}
+
+.flex-title {
+  background-color: lightgrey;
+  color: black;
+  font-weight: bold;
+  font-family: "Balsamiq Sans", cursive;
+  font-size: 3em;
+  border-radius: 0.5em;
+  text-align: center;
+  height: 20vh;
+  width: 50vw;
+  align-items: center;
+  padding: 5px;
+  flex-direction: column;
+}
+.flex-internal-text {
+  color: black;
+  font-weight: bold;
+  font-family: "Balsamiq Sans", cursive;
+  font-size: 18pt;
+  text-align: center;
+  align-items: center;
+  padding: 5px;
+}
+.flex-rows {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 90vw;
+  margin: auto;
+  padding: 10px;
+}
+
+.flex-row-block {
+  background-color: lightgrey;
+  color: black;
+  font-weight: bold;
+  font-family: "Balsamiq Sans", cursive;
+  font-size: 22pt;
+  border-radius: 0.5em;
+  text-align: center;
+  height: 60vh;
+  width: 50vw;
+  align-items: left;
+  flex-direction: row;
+  margin: 10px;
+}
+.flex-links {
+  color: black;
+  font-weight: bold;
+  font-family: "Balsamiq Sans", cursive;
+  font-size: 18pt;
+  text-align: left;
+  align-items: left;
+  padding: 5px;
 }
