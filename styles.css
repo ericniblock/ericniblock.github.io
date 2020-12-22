@@ -218,15 +218,17 @@ object {
   padding: 5px;
 }
 .flex-rows {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
-  height: 90vh;
-  width: 90vw;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-basis: auto;
   margin: auto;
   padding: 10px;
 }
 
 .flex-row-block {
+  flex: 1 1 auto;
   background-color: lightgrey;
   color: black;
   font-weight: bold;
@@ -234,9 +236,8 @@ object {
   font-size: 22pt;
   border-radius: 0.5em;
   text-align: center;
-  height: 60vh;
-  width: 50vw;
   align-items: left;
+  justify-content: flex-start;
   flex-direction: row;
   margin: 10px;
 }
@@ -248,4 +249,8 @@ object {
   text-align: left;
   align-items: left;
   padding: 5px;
+}
+
+li {
+  margin: 10px 0;
 }
