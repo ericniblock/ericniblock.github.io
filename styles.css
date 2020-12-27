@@ -229,6 +229,7 @@ object {
 
 .flex-row-block {
   flex: 1 1 auto;
+  flex-wrap: nowrap;
   background-color: lightgrey;
   color: black;
   font-weight: bold;
@@ -236,10 +237,76 @@ object {
   font-size: 22pt;
   border-radius: 0.5em;
   text-align: center;
-  align-items: left;
+  align-items: flex-end;
   justify-content: flex-start;
   flex-direction: row;
+  max-width: 55%;
   margin: 10px;
+}
+.flex-row-block-small {
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  background-color: lightgrey;
+  color: black;
+  font-weight: bold;
+  font-family: "Balsamiq Sans", cursive;
+  font-size: 22pt;
+  border-radius: 0.5em;
+  text-align: center;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: row;
+  max-width: 40%;
+  margin: 10px;
+}
+.flex-holder-block {
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  /* background-color: lightgrey; */
+  color: black;
+  font-weight: bold;
+  font-family: "Balsamiq Sans", cursive;
+  font-size: 22pt;
+  border-radius: 0.5em;
+  text-align: center;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: row;
+  max-width: 40%;
+  margin: 10px;
+}
+.flex-column-block {
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  background-color: #3395ff;
+  color: black;
+  font-weight: bold;
+  font-family: "Balsamiq Sans", cursive;
+  font-size: 18pt;
+  border-radius: 0.5em;
+  text-align: justify;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: column;
+  /* max-width: 55%; */
+  margin: 10px;
+  padding: 8px;
+}
+.flex-project-block {
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  background-color: #3395ff;
+  color: black;
+  font-weight: bold;
+  font-family: "Balsamiq Sans", cursive;
+  font-size: 22pt;
+  border-radius: 0.5em;
+  text-align: center;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: column;
+  /* max-width: 55%; */
+  padding: 8px;
 }
 .flex-links {
   color: black;
@@ -247,6 +314,7 @@ object {
   font-family: "Balsamiq Sans", cursive;
   font-size: 18pt;
   text-align: left;
+  word-wrap: break-word;
   align-items: left;
   padding: 5px;
 }
