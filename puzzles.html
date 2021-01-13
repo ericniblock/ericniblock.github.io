@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      type="text/javascript"
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+
+  <div class="puzzlecontainer">
+    <div class="top-left">The Random Puzzlers</div>
+    <div class="top-right"></div>
+    <div class="bottom-left">“</div>
+    <div class="bottom-middle">
+      You and five friends decide to work on a jigsaw puzzle. The 1,000 piece
+      puzzle has 50 rows and 20 columns. Each player begins with a random set of
+      200 pieces, puzzling them as best as they can. After all possible moves
+      are made, we are left with single pieces and matched pieces (both of which
+      count as one piece). These are then evenly redistributed at random among
+      the players, and the process repeats. How many rounds must be played
+      before less than 30% of the pieces have no match?
+    </div>
+    <div class="bottom-right"><span>,,</span></div>
+    <div class="problem-ending"><img src="problemend.PNG" height="80px" /></div>
+    <div class="puzzle-answer-title">Solution</div>
+    <div class="puzzle-answer-1">
+      When I first approached this problem, I took a statistical approach.
+      Having little success, I decided to code a simulation and run some tests.
+      I've often found that a quick simulation yields large returns when
+      attempting a closed-form solution regarding difficult probability
+      problems. If you're interested in the code, it can be found on my GitHub.
+      This puzzle in particular lends itself to some beautiful artwork, so lets
+      get to it!
+    </div>
+    <div class="puzzle-section">Method</div>
+    <div class="puzzle-answer-1">
+      We can represent the puzzle using a \(50 \times 20\) array, where each
+      entry in the array corresponds to ownership by a certain player. Using
+      this as our model, we then employ the following steps to create some
+      puzzle-logic, and then our game itself,
+      <ol>
+        <li>
+          Build a dictionary whose keys represent the coordinates of each piece
+          in the array, and when a specific piece is called, returns a list of
+          possible connectors.
+          <i>Numpy</i> makes this task relatively easy through array indexing,
+          though it can get a little tricky thinking about edge/corner pieces.
+        </li>
+        <li>
+          Assign ownership to all of the puzzle pieces at random. Though our
+          specific problem concerns a \(50 \times 20\) array, we might as well
+          create a program for the general case of an \(n \times m\) array. Each
+          of \(p\) players can be represented by a value, \(1,...,p\). We can
+          assign these values equally throughout the array, and then shuffle it.
+        </li>
+        <li>
+          Now we iterate through the positions of every piece, and use the
+          dictionary and array we created to determine whether a connection is
+          possible (pieces must be adjacent and have the same owner). Every
+          piece then has an associated list of connectors. We save all of these
+          lists with reference to which player “owns” them.
+        </li>
+        <li>
+          Now we have something like a network! Every player has a list of
+          sublists, and each sublist represents a piece along with its (maximum
+          four) connectors. We can use <i>NetworkX</i> to join lists which share
+          any common elements, and therefore every player is left with lists
+          representing contiguous sets of pieces.
+        </li>
+        <li>
+          All that's left now is to throw all the new pieces back into the pot,
+          and redistribute them as evenly as possible. We then create a new
+          ownership array, and repeat steps 3-5 as many times as we like. Once
+          only \(p\) pieces remain, we consider the puzzle complete.
+        </li>
+      </ol>
+    </div>
+    <div class="puzzle-section">Results</div>
+    <div class="puzzle-answer-1">
+      As promised: the best part is the art. We can now visualize the resulting
+      puzzle as it is collectively solved by the puzzlers. Each shade of
+      blue-grey represents a specific player's pieces. As shown below, the
+      rounds progress from left to right, top to bottom, with the system's
+      entropy dropping from frame to frame. The first frame appears completely
+      unordered, like the static on a TV screen, while the last possesses mostly
+      large, bulky pieces.
+    </div>
+    <div class="picture-puzzle">
+      <img src="puzzle0.png" height="400px" /><img
+        src="puzzle1.png"
+        height="400px"
+      /><img src="puzzle2.png" height="400px" /><img
+        src="puzzle3.png"
+        height="400px"
+      /><img src="puzzle4.png" height="400px" />
+    </div>
+    <div class="picture-puzzle">
+      <img src="puzzle5.png" height="400px" /><img
+        src="puzzle6.png"
+        height="400px"
+      /><img src="puzzle7.png" height="400px" /><img
+        src="puzzle8.png"
+        height="400px"
+      /><img src="puzzle10.png" height="400px" />
+    </div>
+    <div class="puzzle-answer-1">
+      This graphic does not reveal "completion," however. The end state of any
+      puzzle under this model contains exactly \(p\) pieces, so in this case,
+      five. We now can run a simulation of 1,000 puzzles, each with ten rounds,
+      and record the proportion of single pieces at the end of each round. While
+      we're at it, we might as well try some puzzles of different sizes
+    </div>
+    <div class="puzzle-graph-1"></div>
+    <div class="puzzle-graph-2">
+      <object data="puzzlewidth.html" height="100%"></object>
+    </div>
+    <div class="puzzle-graph-2">
+      <object data="puzzleround.html" height="100%"></object>
+    </div>
+  </div>
+</html>
