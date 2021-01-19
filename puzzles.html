@@ -112,14 +112,48 @@
       puzzle under this model contains exactly \(p\) pieces, so in this case,
       five. We now can run a simulation of 1,000 puzzles, each with ten rounds,
       and record the proportion of single pieces at the end of each round. While
-      we're at it, we might as well try some puzzles of different sizes
+      we're at it, we might as well try some puzzles of different sizes. The
+      original riddle calls for a puzzle of width 20, but let's examine what
+      happens as the puzzle width increases.
     </div>
     <div class="puzzle-graph-1"></div>
     <div class="puzzle-graph-2">
       <object data="puzzlewidth.html" height="100%"></object>
     </div>
+    <div class="puzzle-graph-3"></div>
+    <div class="puzzle-answer-1">
+      First off, we have our solution to the riddle. After only two rounds of
+      random shuffling and piecing, we possess less than 30% single pieces,
+      irrespective of puzzle width.
+      <br />
+      <br />
+      At first glace, the plot above seems to suggest that puzzle width has no
+      impact on the proportion of resulting single pieces at the end of each
+      round. However, if you interact with the graph and zoom in on the cluster
+      of points associated with any specific round, you should notice a fairly
+      robust pattern: increasing the puzzle's width tends to decrease the
+      proportion of single pieces, albeit only slightly. We can investigate this
+      phenomenon more in depth by use of another plot.
+    </div>
+    <div class="puzzle-graph-1"></div>
     <div class="puzzle-graph-2">
       <object data="puzzleround.html" height="100%"></object>
+    </div>
+    <div class="puzzle-graph-3"></div>
+    <div class="puzzle-answer-1">
+      The use of this second graphic provides us with a lot of benefits. Use the
+      interactive legend to isolate any plot (double-click). The scale tranforms
+      to fit, which allows us to see what kind of error each trial carries. We
+      can easily see that, regarless of the round, higher puzzle widths tend to
+      carry smaller proportions of single pieces.
+
+      <br />
+      <br />
+
+      This is as far as I've gotten with this puzzle so far! I've been doing
+      some research into discrete Markov chain systems, which may be useful in
+      attempted a closed-form solution, though such a solution is obviously
+      highly complex.
     </div>
   </div>
 </html>
